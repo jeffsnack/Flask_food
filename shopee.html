@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>農純鄉 | 益生菌網路爬蟲</title>
+    <link href="{{ url_for('static',filename='css/css.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    <section>
+      <div id="back1">
+      </div>
+      <div id="container">
+        <h1>網路爬蟲</h1>
+        <p><label>搜尋項目 : 益生菌</label></p>
+        <fieldset>
+          <legend>目標網站</legend>
+          <button onclick="jumpfb()"> <img src="{{ url_for('static',filename='img/fbimage.png') }}" alt="FBLogo" height="100" width="100"></button>&emsp;&emsp;
+          <button onclick="jumpshoppe();"> <img src="{{ url_for('static',filename='img/shopee.jpg') }}" alt="shopeeLogo" height="100" width="90" ></button>
+          <d>當前搜索網站 : 蝦皮</d>
+        </fieldset>
+        <form method="POST" name="form1">
+          <p><label>資料數量 : <input type="text" name="page"> 頁 </label></p>
+          <input type="submit" class="start" onclick="start();" value="開始處理">
+        </form>
+        <script src="{{ url_for('static',filename='js/loading.js') }}"></script>
+        <div class="load" >
+          <hr/><hr/><hr/><hr/>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div id="data">
+        <h1>現有資料分析</h1>
+        <br/>
+        <ul>
+          <li><a href="/shopee/0" style="text-decoration:none;" onclick="click0();">文字雲</a></li>
+          <li><a href="/shopee/1" style="text-decoration:none;" onclick="click1()">圓餅圖</a></li>
+          <li><a href="/shopee/2" style="text-decoration:none;" onclick="click2();">功效</a></li>
+          <li><a href="/shopee/3" style="text-decoration:none;" onclick="click3();">成分</a></li>
+          <li><a href="/shopee/4" style="text-decoration:none;" onclick="click4();">氣味</a></li>
+          <li><a href="/shopee/5" style="text-decoration:none;" onclick="click5();">風味</a></li>
+          <li><a href="/shopee/6" style="text-decoration:none;" onclick="click6();">價格</a></li>
+          <li><a href="/shopee/7" style="text-decoration:none;" onclick="click7();">其他</a></li>
+        </ul>
+        <br/>
+        <p>&emsp;</p>
+        <center>{{data_plot|safe}}</center>
+        <p></p>
+        <p></p>
+        <p></p>
+        <img src="{{ url_for('static',filename='img/img2.jpg') }}" alt="shopeecloud" id="cloud" style="display:none">
+      </div>
+    </section>
+  </body>
+</html>
